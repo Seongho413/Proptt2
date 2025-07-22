@@ -1,9 +1,6 @@
-포트 열기	firewall-cmd --add-port=9000/tcp --permanent
-설정 적용	firewall-cmd --reload
-현재 포트 확인	firewall-cmd --list-ports
-방화벽 상태	firewall-cmd --state
-방화벽 끄기	systemctl stop firewalld
+## ✅ 1. 방화벽 상태 확인
 
+```bash
 firewall-cmd --state
 # 결과: running 이면 방화벽 작동 중
 ✅ 2. 현재 열려 있는 포트 확인
@@ -44,5 +41,3 @@ bash
 systemctl stop firewalld
 systemctl disable firewalld
 ⚠️ 주의: 외부 접근이 완전히 가능해져서 보안상 매우 위험
-
-📌 자주 쓰는 명령어 요약
