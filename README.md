@@ -13,3 +13,4 @@ ProPTT2 실무 정리 저장소
 - firewall-setting.md : 포트 개방 및 방화벽 설정 명령어 정리  
 - port-troubleshooting.md : 포트 연결 문제 발생 시 점검 순서 및 해결방안  
 - server-structure.md : ProPTT2 시스템 구성 및 흐름 설명
+- proptt2-check.sh : ProPTT2 상태 점검을 자동으로 해주는 스크립
