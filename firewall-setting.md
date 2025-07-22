@@ -1,43 +1,57 @@
 ## ✅ 1. 방화벽 상태 확인
 
-```bash
-firewall-cmd --state
-# 결과: running 이면 방화벽 작동 중
+firewall-cmd --state  
+(출력: running 이면 방화벽 작동 중)
+
+---
+
 ## ✅ 2. 현재 열려 있는 포트 확인
-bash
-복사
-편집
+
 firewall-cmd --list-ports
+
+---
+
 ## ✅ 3. 새 포트 열기 (예: 9000번 TCP)
-bash
-복사
-편집
-firewall-cmd --add-port=9000/tcp --permanent
---permanent: 재부팅 후에도 유지됨
 
-생략 시 임시 적용 (다시 부팅하면 사라짐)
+firewall-cmd --add-port=9000/tcp --permanent  
+→ --permanent는 재부팅 후에도 유지  
+→ 생략하면 임시 적용
 
-## ✅ 4. 방화벽 설정 적용 (변경사항 반영)
-bash
-복사
-편집
+---
+
+## ✅ 4. 방화벽 적용 (reload)
+
 firewall-cmd --reload
-## ✅ 5. 포트가 열렸는지 확인
-bash
-복사
-편집
+
+---
+
+## ✅ 5. 포트 열린 상태 확인
+
 firewall-cmd --list-ports
-## ✅ 6. 서비스 이름으로 열기 (HTTP, SSH 등)
-bash
-복사
-편집
-firewall-cmd --add-service=http --permanent
-firewall-cmd --add-service=ssh --permanent
+
+---
+
+## ✅ 6. 서비스 이름으로 열기 (http, ssh 등)
+
+firewall-cmd --add-service=http --permanent  
+firewall-cmd --add-service=ssh --permanent  
 firewall-cmd --reload
-## ✅ 7. 방화벽 완전 끄기 (테스트용만, 실무에서는 위험)
-bash
-복사
-편집
-systemctl stop firewalld
-systemctl disable firewalld
-⚠️ 주의: 외부 접근이 완전히 가능해져서 보안상 매우 위험
+
+---
+
+## ⚠️ 7. 방화벽 완전 끄기 (실무 비추천)
+
+systemctl stop firewalld  
+systemctl disable firewalld  
+※ 테스트 외 사용 금지
+
+---
+
+## 📌 명령어 요약 정리
+
+- 상태 확인: firewall-cmd --state  
+- 포트 확인: firewall-cmd --list-ports  
+- 포트 열기: firewall-cmd --add-port=9000/tcp --permanent  
+- 서비스 열기: firewall-cmd --add-service=http --permanent  
+- 적용하기: firewall-cmd --reload  
+- 방화벽 끄기: systemctl stop firewalld
